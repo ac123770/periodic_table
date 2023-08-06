@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Table, TableWrapper, Row, Cell } from 'react-native-reanimated-table';
+import { elements } from "../assets/elements";
 
 function _alertIndex (index) {
 Alert.alert(`This is row ${index + 1}`);
@@ -11,8 +12,8 @@ export default function PeriodicTable() {
     const state = {
       // tableHead: ['Head',TouchableOpacity 'Head2', 'Head3', 'Head4'],
       tableData: [
-        ['H', '', '', '', '', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', 'He'],
-        ['Li', 'Be', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', 'B', 'C', 'N', 'O', 'F', 'Ne']
+        ['H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'He'],
+        ['Li', 'Be', '', '', '', '', '', '', '', '', '', '', 'B', 'C', 'N', 'O', 'F', 'Ne']
     
       ]
     }
@@ -34,8 +35,9 @@ export default function PeriodicTable() {
               <TableWrapper key={index} style={styles.row}>
                 {
                   rowData.map((cellData, cellIndex) => (
-                    <Cell key={cellIndex} data={cellIndex === 3 ? Active_Element(cellData, index) : cellData} textStyle={styles.text} style={styles.cell} />
+                    <Cell key={cellIndex} data={cellData != ""? elements[cellData].name: '' } textStyle={styles.text} style={styles.cell} />
                   ))
+                  //cellData === 'H' ? Active_Element(cellData, index) : cellData
                 }
               </TableWrapper>
             ))
@@ -45,6 +47,8 @@ export default function PeriodicTable() {
     )
  
 }
+
+
 
 const styles = StyleSheet.create({
   // container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
