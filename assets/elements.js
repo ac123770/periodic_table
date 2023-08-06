@@ -52,5 +52,59 @@ export const elements = {
     },
     "Ar": {
         "name": "Argon"
+    },
+    "K": {
+        "name": "Potassium"
+    },
+    "Ca": {
+        "name": "Calcium"
+    },
+    "Sc": {
+        "name": "Scandium"
+    },
+    "Ti": {
+        "name": "Titanium"
+    },
+    "V": {
+        "name": "Vanadium"
+    },
+    "Cr": {
+        "name": "Chromium"
+    },
+    "Mn": {
+        "name": "Manganese"
+    },
+    "Fe": {
+        "name": "Iron"
+    },
+    "Co": {
+        "name": "Cobalt"
+    },
+    "Ni": {
+        "name": "Nickel"
+    },
+    "Cu": {
+        "name": "Copper"
+    },
+    "Zn": {
+        "name": "Zinc"
+    },
+    "Ga": {
+        "name": "Gallium"
+    },
+    "Ge": {
+        "name": "Germanium"
+    },
+    "As": {
+        "name": "Arsenic"
+    },
+    "Se": {
+        "name": "Selinium"
+    },
+    "Br": {
+        "name": "Bromine"
+    },
+    "Kr": {
+        "name": "Krypton"
     }
 }
