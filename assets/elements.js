@@ -29,4 +29,28 @@ export const elements = {
     "Ne": {
         "name": "Neon"
     },
+    "Na": {
+        "name": "Sodium"
+    },
+    "Mg": {
+        "name": "Magnesium"
+    },
+    "Al": {
+        "name": "Aluminum"
+    },
+    "Si": {
+        "name": "Silicon"
+    },
+    "P": {
+        "name": "Phosphorus"
+    },
+    "S": {
+        "name": "Sulphur"
+    },
+    "Cl": {
+        "name": "Chlorine"
+    },
+    "Ar": {
+        "name": "Argon"
+    }
 }

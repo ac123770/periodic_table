@@ -13,8 +13,8 @@ export default function PeriodicTable() {
       // tableHead: ['Head',TouchableOpacity 'Head2', 'Head3', 'Head4'],
       tableData: [
         ['H', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'He'],
-        ['Li', 'Be', '', '', '', '', '', '', '', '', '', '', 'B', 'C', 'N', 'O', 'F', 'Ne']
-    
+        ['Li', 'Be', '', '', '', '', '', '', '', '', '', '', 'B', 'C', 'N', 'O', 'F', 'Ne'],
+        ['So', 'Mg', '', '', '', '', '', '', '', '', '', '', 'Al', 'Si', 'P', 'S', 'Cl', 'Ar']
       ]
     }
   
