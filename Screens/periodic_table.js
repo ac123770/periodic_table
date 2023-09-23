@@ -29,6 +29,8 @@ export default function PeriodicTable() {
         <View style={styles.btn}>
           <Text style={styles.Cell}>{data}</Text>
           <Text style={styles.elementSymbol}>{data}</Text>
+          <Text style={styles.elementName} >{elements[data].name}</Text>
+          <Text style={styles.elementMass} >{elements[data].mass}</Text>
         </View>
       </TouchableOpacity>
     );
@@ -63,7 +65,9 @@ const styles = StyleSheet.create({
   head: { height: 40, backgroundColor: '#808B97' },
   text: { margin: 6 },
   row: { flexDirection: 'row', backgroundColor: '#FFF1C1' },
-  btn: { width: 58, height: 58, backgroundColor: '#78B7BB',  borderRadius: 2 },
-  elementSymbol: { textAlign: 'center', color: '#fff', fontSize: 14 },
-  cell: { width: 60, height: 60 }
+  btn: { width: 70, height: 77, backgroundColor: 'hotpink',  borderRadius: 2 },
+  elementSymbol: { textAlign: 'center', color: '#fff', fontSize: 20 },
+  elementName: { textAlign: 'center', fontSize: 10 },
+  elementMass: { textAlign: 'center', fontSize: 12 },
+  cell: { width: 75, height: 80 }
 });
