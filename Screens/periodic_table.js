@@ -24,9 +24,20 @@ export default function PeriodicTable() {
       ]
     }
   
+    const typeStyle = function(element_type){      
+      switch(element_type){
+        case "Noble Gas":
+          return styles.btn_noble_gas
+          case "Alkaline Earth Metal":
+            return styles.btn_alkaline_earth_metal
+        default:
+          return styles.btn
+      }
+    }
+
     const Active_Element = (data, index) => (
       <TouchableOpacity onPress={() => _alertIndex(index)}>
-        <View style={styles.btn}>
+        <View style={typeStyle(elements[data].type)}>
           <Text style={styles.Cell}>{data}</Text>
           <Text style={styles.elementSymbol}>{data}</Text>
           <Text style={styles.elementName} >{elements[data].name}</Text>
@@ -66,6 +77,8 @@ const styles = StyleSheet.create({
   text: { margin: 6 },
   row: { flexDirection: 'row', backgroundColor: '#FFF1C1' },
   btn: { width: 70, height: 77, backgroundColor: 'hotpink',  borderRadius: 2 },
+  btn_noble_gas: { width: 70, height: 77, backgroundColor: 'green',  borderRadius: 2 },
+  btn_alkaline_earth_metal: { width: 70, height: 77, backgroundColor: 'red',  borderRadius: 2 },
   elementSymbol: { textAlign: 'center', color: '#fff', fontSize: 20 },
   elementName: { textAlign: 'center', fontSize: 10 },
   elementMass: { textAlign: 'center', fontSize: 12 },
