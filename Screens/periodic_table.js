@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Table, TableWrapper, Row, Cell } from 'react-native-reanimated-table';
 import { elements } from "../assets/elements";
+import { Modal, Portal, PaperProvider } from 'react-native-paper';
 
 function _alertIndex (index) {
 Alert.alert(`This is row ${index + 1}`);
@@ -36,7 +37,7 @@ export default function PeriodicTable() {
     }
 
     const Active_Element = (data, index) => (
-      <TouchableOpacity onPress={() => _alertIndex(index)}>
+      <TouchableOpacity onPress={showModal}>
         <View style={typeStyle(elements[data].type)}>
           <Text style={styles.Cell}>{data}</Text>
           <Text style={styles.elementSymbol}>{data}</Text>
@@ -46,24 +47,38 @@ export default function PeriodicTable() {
       </TouchableOpacity>
     );
 
+    const [visible, setVisible] = React.useState(false);
+
+    const showModal = () => setVisible(true);
+    const hideModal = () => setVisible(false);
+    const containerStyle = {backgroundColor: 'white', padding: 20, alignSelf:"center", left: 300, top: 500 };
+
     return (
-      <View style={styles.container}>
-        <Table borderStyle={{borderColor: 'transparent'}}>
-          <Row data={state.tableHead} style={styles.head} textStyle={styles.text}/>
-          {
-            state.tableData.map((rowData, index) => (
-              <TableWrapper key={index} style={styles.row}>
-                {
-                  rowData.map((cellData, cellIndex) => (
-                    <Cell key={cellIndex} data={cellData != ""? Active_Element (cellData, 0): '' } textStyle={styles.text} style={styles.cell} />
-                  ))
-                  //cellData === 'H' ? Active_Element(cellData, index) : cellData
-                }
-              </TableWrapper>
-            ))
-          }
-        </Table>
-      </View>
+      <PaperProvider style={styles.container}>
+        <View style={styles.container}>
+          <Portal>
+            <Modal visible={visible} onDismiss={hideModal} customBackdrop={<View style={{left: 1000, top: 300}} />} style={styles.modal} contentContainerStyle={containerStyle}>
+              <Text>Example Modal. Click outside this area to dismiss.</Text>
+            </Modal>
+          </Portal>
+
+          <Table borderStyle={{borderColor: 'transparent'}}>
+            <Row data={state.tableHead} style={styles.head} textStyle={styles.text}/>
+            {
+              state.tableData.map((rowData, index) => (
+                <TableWrapper key={index} style={styles.row}>
+                  {
+                    rowData.map((cellData, cellIndex) => (
+                      <Cell key={cellIndex} data={cellData != ""? Active_Element (cellData, 0): '' } textStyle={styles.text} style={styles.cell} />
+                    ))
+                    //cellData === 'H' ? Active_Element(cellData, index) : cellData
+                  }
+                </TableWrapper>
+              ))
+            }
+          </Table>
+        </View>
+      </PaperProvider>
     )
  
 }
@@ -82,5 +97,6 @@ const styles = StyleSheet.create({
   elementSymbol: { textAlign: 'center', color: '#fff', fontSize: 20 },
   elementName: { textAlign: 'center', fontSize: 10 },
   elementMass: { textAlign: 'center', fontSize: 12 },
-  cell: { width: 75, height: 80 }
+  cell: { width: 75, height: 80 },
+  modal: {margin: 0}
 });
