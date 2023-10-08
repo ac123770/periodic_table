@@ -37,7 +37,7 @@ export default function PeriodicTable() {
           return [styles.btn, {backgroundColor:"grey"}]
         case "Actinoid":
           return [styles.btn, {backgroundColor:"orange"}]
-        case "Transition Metals":gg
+        case "Transition Metals":
           return [styles.btn, {backgroundColor:"lightgreen"}]
         case "Alkali Metal":
           return [styles.btn, {backgroundColor:"tan"}]
@@ -95,37 +95,37 @@ export default function PeriodicTable() {
 
     return (
    
-        <View style={styles.container}>
+      <View style={styles.container}>
      
-     <Modal
-        animationType="slide"
-        transparent={true}
-        visible={visible}
-        onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
-          setVisible(!visible);
-        }}>
-        <View style={styles.centeredView}>
-          {Modal_Content ()}
-        </View>
-      </Modal>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={visible}
+          onRequestClose={() => {
+            Alert.alert('Modal has been closed.');
+            setVisible(!visible);
+          }}>
+          <View style={styles.centeredView}>
+            {Modal_Content ()}
+          </View>
+        </Modal>
 
-
-          <Table borderstyle={{borderColor: 'transparent'}}>
-            {
-              state.tableData.map((rowData, index) => (
-                <TableWrapper key={index} style={styles.row}>
-                  {
-                    rowData.map((cellData, cellIndex) => (
-                      <Cell key={cellIndex} data={cellData != ""? Active_Element (cellData, 0): '' } textStyle={styles.text} style={styles.cell} />
-                    ))
-                    //cellData === 'H' ? Active_Element(cellData, index) : cellData
-                  }
-                </TableWrapper>
-              ))
-            }
-          </Table>
-        </View>
+        
+        <Table borderstyle={{borderColor: 'transparent'}}>
+          {
+            state.tableData.map((rowData, index) => (
+              <TableWrapper key={index} style={styles.row}>
+                {
+                  rowData.map((cellData, cellIndex) => (
+                    <Cell key={cellIndex} data={cellData != ""? Active_Element (cellData, 0): '' } textStyle={styles.text} style={styles.cell} />
+                  ))
+                  //cellData === 'H' ? Active_Element(cellData, index) : cellData
+                }
+              </TableWrapper>
+            ))
+          }
+        </Table>
+      </View>
 
     )
  
@@ -135,10 +135,10 @@ export default function PeriodicTable() {
 
 const styles = StyleSheet.create({
   // container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
-  container: {width: 500 },
+  container: {width: 500},
   head: { height: 40, backgroundColor: 'green' },
   text: { margin: 6 },
-  row: { flexDirection: 'row', backgroundColor: '#FFF1C1' },
+  row: { flexDirection: 'row' },
   btn: { width: 70, height: 77, backgroundColor: 'hotpink',  borderRadius: 2 },
   elementSymbol: { textAlign: 'center', color: '#fff', fontSize: 20 },
   elementName: { textAlign: 'center', fontSize: 10 },
